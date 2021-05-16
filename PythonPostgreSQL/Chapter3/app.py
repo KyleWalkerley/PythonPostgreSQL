@@ -1,4 +1,4 @@
-from database import add_entry, get_entries
+from abc import add_entry, get_entries
 
 menu = """ Please select one of the folowing options:
 1) Add new entry for today.
