@@ -1,4 +1,4 @@
-from abc import add_entry, get_entries
+from abc import create_table, add_entry, get_entries
 
 menu = """ Please select one of the folowing options:
 1) Add new entry for today.
@@ -20,6 +20,8 @@ def view_entries(entries):
             print(f"{entry['date']}\n{entry['content']}\n\n")
 
 print(Welcome)
+
+create_table()
 
 user_input = input(menu)
 while (user_input := input(menu)) != "3":
