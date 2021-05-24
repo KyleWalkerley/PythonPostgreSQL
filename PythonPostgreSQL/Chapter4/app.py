@@ -25,16 +25,35 @@ def prompt_add_movie():
 
     test.add_movie(title, timestamp)
 
+
+def print_movie_list(heading, movies):
+    print(f"-- {heading} movies --")
+    for movie in movies():
+        movie_date = datetime.datetime.fromtimestamp(movie[1])
+        human_date = movie_date.strftime("%b %d %Y")
+        print(f"{movie[0]} (on {human_date})")
+    print("---- \n")
+
+
+def prompt_watch_movie():
+    movie_title = input("Enter movie title you've watched: ")
+    test.watch_movie(movie_title)
+
+
+
 while (user_input := input(menu)) != "6":
     if user_input == "1":
         prompt_add_movie()
     elif user_input == "2":
-        pass
+        movies = test.get_movies(True)
+        print_movie_list("Upcoming", movies)
     elif user_input == "3":
-        pass
+        movies = test.get_movies()
+        print_movie_list("All", movies)
     elif user_input == "4":
-        pass
+        prompt_watch_movie()
     elif user_input == "5":
-        pass
+        movies = test.get_watched_movies()
+        print_movie_list("Watched", movies)
     else:
         print("Invalid input, please try again!")
