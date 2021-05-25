@@ -1,8 +1,12 @@
+import os
 import datetime
-import sqlite3
-from sqlite3.dbapi2 import Cursor
+import psycopg2
 
-connection = sqlite3.connect("data.db")
+from dotenv import load_dotenv
+
+load_dotenv
+
+connection = psycopg2.connect(os.environ["TEST_URL"])
 
 CREATE_MOVIES_TABLE = """CREATE TABLE IF NOT EXISTS movies(
     id INTEGER PRIMARY KEY,
