@@ -88,7 +88,7 @@ def menu():
     database_uri = input(DATABASE_PROMPT)
     if not database_uri:
         load_dotenv()
-        database_uri = os.environ["DATABASE_URI"]
+        database_uri = os.environ["DATABASE_URL"]
 
     connection = psycopg2.connect(database_uri)
     test.create_tables(connection)
